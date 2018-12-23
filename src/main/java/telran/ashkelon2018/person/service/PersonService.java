@@ -2,6 +2,8 @@ package telran.ashkelon2018.person.service;
 
 import telran.ashkelon2018.person.domain.Address;
 import telran.ashkelon2018.person.domain.Person;
+import telran.ashkelon2018.person.dto.ChildDto;
+import telran.ashkelon2018.person.dto.CityPopulationDto;
 
 public interface PersonService {
 	
@@ -18,5 +20,11 @@ public interface PersonService {
 	Iterable<Person> getPersonsByCity(String city);
 	
 	Iterable<Person> getEmployeesBySalary(int minSalary, int maxSalary);
+	
+	Iterable<ChildDto> getAllChildren();
+	
+	Iterable<Person> getEmployeesByCompany(String company);
+	
+	Iterable<CityPopulationDto> getCityPopulation();
 
 }

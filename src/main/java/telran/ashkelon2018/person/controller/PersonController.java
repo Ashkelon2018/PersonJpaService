@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.NonNull;
 import telran.ashkelon2018.person.domain.Address;
 import telran.ashkelon2018.person.domain.Person;
+import telran.ashkelon2018.person.dto.ChildDto;
+import telran.ashkelon2018.person.dto.CityPopulationDto;
 import telran.ashkelon2018.person.service.PersonService;
 
 @RestController
@@ -55,6 +57,21 @@ public class PersonController {
 	@GetMapping("/salary/{min}/{max}")
 	public Iterable<Person> getEmployeesBySalary(@PathVariable int min, @PathVariable int max){
 		return personService.getEmployeesBySalary(min, max);
+	}
+	
+	@GetMapping("/children")
+	public Iterable<ChildDto> getAllChildren(){
+		return personService.getAllChildren();
+	}
+	
+	@GetMapping("/company/{company}")
+	public Iterable<Person> getEmployeesByCompany(String company){
+		return personService.getEmployeesByCompany(company);
+	}
+	
+	@GetMapping("/population")
+	public Iterable<CityPopulationDto> getPopulation(){
+		return personService.getCityPopulation();
 	}
 
 }

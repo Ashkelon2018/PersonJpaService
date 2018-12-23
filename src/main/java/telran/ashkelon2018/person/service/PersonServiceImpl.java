@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import telran.ashkelon2018.person.dao.PersonRepository;
 import telran.ashkelon2018.person.domain.Address;
 import telran.ashkelon2018.person.domain.Person;
+import telran.ashkelon2018.person.dto.ChildDto;
+import telran.ashkelon2018.person.dto.CityPopulationDto;
 
 @Service
 public class PersonServiceImpl implements PersonService {
@@ -65,6 +67,21 @@ public class PersonServiceImpl implements PersonService {
 	@Override
 	public Iterable<Person> getEmployeesBySalary(int minSalary, int maxSalary) {
 		return personRepository.findBySalaryBetween(minSalary, maxSalary);
+	}
+
+	@Override
+	public Iterable<ChildDto> getAllChildren() {
+		return personRepository.findAllChildren();
+	}
+
+	@Override
+	public Iterable<Person> getEmployeesByCompany(String company) {
+		return personRepository.findEmployeesByCompany(company);
+	}
+
+	@Override
+	public Iterable<CityPopulationDto> getCityPopulation() {
+		return personRepository.getCityPopulation();
 	}
 
 }
