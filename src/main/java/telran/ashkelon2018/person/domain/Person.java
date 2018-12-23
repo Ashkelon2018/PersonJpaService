@@ -5,6 +5,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -24,6 +26,7 @@ import lombok.Setter;
 @EqualsAndHashCode(of = {"id"})
 @Entity
 @Table(name = "persons")
+@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Person implements Serializable {
 	
 	/**
